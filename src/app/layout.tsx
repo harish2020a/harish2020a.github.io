@@ -1,8 +1,5 @@
 import Head from "next/head";
 import "./globals.css";
-import localFont from "next/font/local";
-
-const myFont = localFont({ src: "/public/fonts/myFont.woff" });
 
 export const metadata = {
   title: "Harish B",
@@ -23,7 +20,7 @@ export default function RootLayout({
         />
       </Head>
 
-      <body className={myFont.className}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

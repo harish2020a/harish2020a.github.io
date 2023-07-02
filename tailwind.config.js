@@ -8,8 +8,10 @@ module.exports = {
   ],
   theme: {
     cursor: {
-      default: "url(/cursor/blue-cursor.png), default",
-      pointer: "url(/cursor/blue-pointer.png), pointer",
+      // default: "url(/cursor/neon-default.cur), default",
+      // pointer: "url(/cursor/neon-pointer.cur), pointer",
+      default: "url(/cursor/xenon/blue/loc.cur), default",
+      pointer: "url(/cursor/xenon/blue/link.cur), pointer",
     },
     extend: {
       colors: {
@@ -19,8 +21,9 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "banner-bg": "url('/assets/noiseNew.png')",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };

@@ -6,4 +6,21 @@
   .heroButton {
     @apply border border-customBlue hover:border-[#39FF14]/80 tracking-widest uppercase text-[10px] sm:text-sm md:text-lg lg:text-xl text-gray-400 py-2 px-2 rounded-full transition-all hover:text-[#39FF14]/80 animate-pulse hover:animate-none;
   }
+
+  .contactInput {
+    @apply outline-none bg-gray-400 rounded-md border-b px-6 py-4 text-gray-900 m-2 placeholder-gray-500 transition-all focus:border-[#FD1C03];
+  }
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+@font-face {
+  font-family: "Nico Moji";
+  src: url("/fonts/myFont.woff") format("woff");
+}
+
+* {
+  font-family: "Nico Moji" !important;
 }

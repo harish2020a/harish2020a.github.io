@@ -22,13 +22,13 @@ const Header = (props: Props) => {
         transition={{ delay: 3, duration: 0.5 }}
       >
         <SocialIcon
-          style={{ cursor: "url(/cursor/blue-pointer.png), pointer" }}
+          style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}
           url="https://www.linkedin.com/in/harishb2020/"
           bgColor="transparent"
           fgColor="rgb(156 163 175)"
         />
         <SocialIcon
-          style={{ cursor: "url(/cursor/blue-pointer.png), pointer" }}
+          style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}
           url="https://www.linkedin.com/in/harishb2020/"
           bgColor="transparent"
           fgColor="rgb(156 163 175)"

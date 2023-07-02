@@ -7,7 +7,7 @@ type Props = {};
 
 const Experience = (props: Props) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: false });
   const experience = useAnimation();
   useEffect(() => {
     if (isInView) {
@@ -39,7 +39,7 @@ const Experience = (props: Props) => {
       >
         Experience
       </motion.h3>
-      <div className="text-clip overflow-auto w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory mt-20">
+      <div className="text-clip overflow-auto w-11/12 md:w-10/12 lg:w-8/12 xl:w-6/12 flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory mt-20 scrollbar-thin scrollbar-track-red-700/50 scrollbar-thumb-[#39FF14]">
         <ExperienceCard />
         <ExperienceCard />
         <ExperienceCard />

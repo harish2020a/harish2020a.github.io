@@ -2,6 +2,7 @@
 import { AppBar, Tabs, Tab, createTheme, ThemeProvider } from "@mui/material";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import Skill from "./Skill/Skill";
 type Props = {};
 
 const Skills = (props: Props) => {
@@ -44,7 +45,7 @@ const Skills = (props: Props) => {
       >
         Skills
       </motion.h3>
-      <div className="flex flex-col w-11/12">
+      <div className="flex flex-col w-9/12">
         <ThemeProvider theme={theme}>
           <AppBar
             position="static"
@@ -52,6 +53,8 @@ const Skills = (props: Props) => {
             style={{
               backgroundColor: "#9ca3af",
               width: "100%",
+              borderTopLeftRadius: "20px",
+              borderTopRightRadius: "20px",
             }}
             className="skill-bar"
           >
@@ -82,17 +85,25 @@ const Skills = (props: Props) => {
               />
             </Tabs>
           </AppBar>
-          {/* <Panel index={0} value={tab}>
-              <FrontendPanel />
-              </Panel>
-              <Panel index={1} value={tab}>
-              <BackendPanel />
-              </Panel>
-              <Panel index={2} value={tab}>
-              <CompetitivePanel />
-            </Panel> */}
         </ThemeProvider>
-        <div className="bg-customblue border border-gray-400">Hello</div>
+        <div className="bg-customBlue border rounded-b-[20px] py-10 border-gray-400 flex flex-wrap gap-5 justify-center">
+          <Skill />
+          <Skill />
+          <Skill />
+          <Skill />
+          <Skill />
+          <Skill />
+          <Skill />
+          <Skill />
+          <Skill />
+          <Skill />
+          <Skill />
+          <Skill />
+          <Skill />
+          <Skill />
+          <Skill />
+          <Skill />
+        </div>
       </div>
     </div>
   );
