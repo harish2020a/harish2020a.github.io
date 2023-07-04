@@ -1,30 +1,35 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: 'pageInfo',
-  title: 'PageInfo',
-  type: 'document',
+  name: "pageInfo",
+  title: "PageInfo",
+  type: "document",
   fields: [
     defineField({
-      name: 'name',
-      title: 'Name',
-      type: 'string',
+      name: "name",
+      title: "Name",
+      type: "string",
     }),
     defineField({
-      name: 'backgroundInfo',
-      title: 'BackgroundInfo',
-      type: 'string',
+      name: "backgroundInfo",
+      title: "BackgroundInfo",
+      type: "string",
     }),
     defineField({
-      name: 'phoneNumber',
-      title: 'PhoneNumber',
-      type: 'string',
+      name: "phoneNumber",
+      title: "PhoneNumber",
+      type: "string",
     }),
     defineField({
-      name: 'socials',
-      title: 'Socials',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'social'}}],
+      name: "email",
+      title: "Email",
+      type: "string",
+    }),
+    defineField({
+      name: "socials",
+      title: "Socials",
+      type: "array",
+      of: [{ type: "reference", to: { type: "social" } }],
     }),
   ],
-})
+});

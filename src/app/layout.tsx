@@ -13,13 +13,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
+      {/* <Head>
         <link
           href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap"
           rel="stylesheet"
         />
-      </Head>
-
+      </Head> */}
       <body>{children}</body>
     </html>
   );

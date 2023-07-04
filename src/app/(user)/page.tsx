@@ -10,7 +10,7 @@ import Design from "../utils/Design";
 import Image from "next/image";
 import HomePng from "../../../public/assets/home.png";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div className="scrollbar-thin scrollbar-track-red-700/50 scrollbar-thumb-[#39FF14] text-gray-400 cursor-default relative h-screen w-screen overflow-x-hidden snap-y snap-mandatory overflow-scroll z-0">
       <div className="w-full fixed h-screen -z-50">
@@ -36,13 +36,13 @@ export default function Home() {
         <ContactMe />
       </section>
 
-      <Link href="#hero">
+      {/* <Link href="#hero">
         <Image
           src={HomePng}
           className="h-10 w-10 cursor-pointer mx-auto sticky bottom-5"
           alt="Home"
         />
-      </Link>
+      </Link> */}
     </div>
   );
 }
