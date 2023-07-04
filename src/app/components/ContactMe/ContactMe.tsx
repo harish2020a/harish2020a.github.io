@@ -6,8 +6,11 @@ import {
   RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
 import { useForm, Resolver } from "react-hook-form";
+import { PageInfo } from "@/app/types/typings";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
 type FormValues = {
   name: string;
@@ -16,7 +19,7 @@ type FormValues = {
   message: string;
 };
 
-const ContactMe = (props: Props) => {
+const ContactMe = ({ pageInfo }: Props) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const contact = useAnimation();
@@ -71,7 +74,7 @@ const ContactMe = (props: Props) => {
           className="flex cursor-pointer items-center space-x-5 justify-center"
         >
           <DevicePhoneMobileIcon className="h-7 w-7 animate-pulse text-[#39FF14]" />
-          <p className="underline">(+91) 7904179970</p>
+          <p className="underline">{pageInfo?.phoneNumber}</p>
         </motion.div>
         <form
           onSubmit={onSubmit}

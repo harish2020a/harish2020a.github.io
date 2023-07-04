@@ -52,7 +52,7 @@ const Projects = ({ projects }: Props) => {
         {projects?.map((project) => {
           return (
             <div
-              key={project._id}
+              key={project?._id}
               className="bg-gray-900 opacity-70 hover:opacity-100 snap-center rounded-2xl snap-mandatory flex flex-col flex-shrink-0 space-y-5 items-center overflow-y-scroll justify-center py-10 h-full w-11/12"
             >
               <motion.img

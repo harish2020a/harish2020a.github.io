@@ -1,10 +1,13 @@
 "use client";
+import { PageInfo } from "@/app/types/typings";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-const About = (props: Props) => {
+const About = ({ pageInfo }: Props) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const about = useAnimation();
@@ -76,18 +79,7 @@ const About = (props: Props) => {
           whileTap={{ scale: 0.7 }}
           className="text-xs sm:text-sm cursor-pointer"
         >
-          I am an ambitious, self-taught developer pursuing my undergraduate
-          studies in Computer Science and Engineering at Vellore Institute of
-          Technology - Chennai. Constantly striving to stay at the forefront of
-          technological advancements, I have ventured beyond traditional Full
-          Stack Development. My recent explorations include Blockchain, DevOps,
-          and Data Science, with a particular passion for machine learning.
-          Through practical projects, I have honed my skills in various areas,
-          showcasing my proficiency in creating web applications and
-          implementing secure blockchain solutions. With a solid foundation in
-          Full Stack Development and a drive to push the boundaries of
-          technology, I am eager to contribute my expertise to the industry and
-          collaborate on innovative solutions.
+          {pageInfo?.backgroundInfo}
         </motion.p>
       </div>
     </div>

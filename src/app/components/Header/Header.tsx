@@ -26,11 +26,11 @@ const Header = ({ socials }: Props) => {
         }}
         transition={{ delay: 3, duration: 0.5 }}
       >
-        {socials.map((social) => (
+        {socials?.map((social) => (
           <SocialIcon
-            key={social._id}
+            key={social?._id}
             style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}
-            url={social.url}
+            url={social?.url}
             bgColor="transparent"
             fgColor="rgb(156 163 175)"
           />

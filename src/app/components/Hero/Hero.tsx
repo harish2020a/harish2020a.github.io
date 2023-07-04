@@ -12,21 +12,21 @@ type Props = {
 const Hero = ({ pageInfo }: Props) => {
   const router = useRouter();
   const [text, count] = useTypewriter({
-    words: [pageInfo.quote1, pageInfo.quote2],
+    words: [pageInfo?.quote1, pageInfo?.quote2],
     loop: true,
   });
   return (
     <div className="font-extrabold h-screen flex items-center justify-center text-gray-400 flex-col text-center overflow-hidden space-y-5 px-10">
       <WavyText
         as="h1"
-        text={`Hello there! I'm ${pageInfo.name}`}
+        text={`Hello there! I'm ${pageInfo?.name}`}
         once
         className="text-lg sm:text-4xl lg:text-6xl hover:bg-gray-300 hover:-skew-y-3 cursor-pointer hover:text-black rounded-3xl px-5"
       />
       <WavyText
         delay={1}
         as="h3"
-        text={pageInfo.role}
+        text={pageInfo?.role}
         once
         spanClassName="text-xs sm:text-2xl lg:text-4xl font-light cursor-pointer"
       />
