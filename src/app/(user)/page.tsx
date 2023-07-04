@@ -17,18 +17,13 @@ import { fetchsocials } from "../utils/fetchsocials";
 
 export const revalidate = 60;
 
-const getData = async () => {
+export default async function Home() {
   const pageInfo = await fetchPageInfo();
   const skills = await fetchSkills();
   const experiences = await fetchExperiences();
   const projects = await fetchProjects();
   const socials = await fetchsocials();
-  return { pageInfo, skills, experiences, projects, socials };
-};
 
-export default async function Home() {
-  const { pageInfo, skills, experiences, projects, socials } = await getData();
-  console.log(projects.length);
   return (
     <div className="scrollbar-thin scrollbar-track-red-700/50 scrollbar-thumb-[#39FF14] text-gray-400 cursor-default relative h-screen w-screen overflow-x-hidden snap-y snap-mandatory overflow-scroll z-0">
       <div className="w-full fixed h-screen -z-50">
