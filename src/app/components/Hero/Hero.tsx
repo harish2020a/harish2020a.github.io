@@ -2,11 +2,12 @@
 import { motion } from "framer-motion";
 import WavyText from "../WavyText";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Props = {};
 
 const Hero = (props: Props) => {
+  const router = useRouter();
   const [text, count] = useTypewriter({
     words: [
       "Building bridges between code and data!",
@@ -57,42 +58,38 @@ const Hero = (props: Props) => {
         <Cursor cursorColor="#39FF14" />
       </motion.h2>
       <div className="-mx-10 sm:mx-auto space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-8 pt-10">
-        <Link href="#about">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.5 }}
-            className="heroButton cursor-pointer"
-          >
-            About
-          </motion.button>
-        </Link>
-        <Link href="#experience">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.5 }}
-            className="heroButton cursor-pointer"
-          >
-            Experience
-          </motion.button>
-        </Link>
-        <Link href="#skills">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.5 }}
-            className="heroButton cursor-pointer"
-          >
-            Skills
-          </motion.button>
-        </Link>
-        <Link href="#projects">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.5 }}
-            className="heroButton cursor-pointer"
-          >
-            Projects
-          </motion.button>
-        </Link>
+        <motion.button
+          onClick={() => router.push("#about")}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.5 }}
+          className="heroButton cursor-pointer"
+        >
+          About
+        </motion.button>
+        <motion.button
+          onClick={() => router.push("#experience")}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.5 }}
+          className="heroButton cursor-pointer"
+        >
+          Experience
+        </motion.button>
+        <motion.button
+          onClick={() => router.push("#skills")}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.5 }}
+          className="heroButton cursor-pointer"
+        >
+          Skills
+        </motion.button>
+        <motion.button
+          onClick={() => router.push("#projects")}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.5 }}
+          className="heroButton cursor-pointer"
+        >
+          Projects
+        </motion.button>
       </div>
     </div>
   );

@@ -47,7 +47,10 @@ const Projects = (props: Props) => {
       <div className="z-20 absolute space-x-5 w-11/12 md:w-10/12 lg:w-8/12 xl:w-6/12 top-32 snap-x snap-mandatory flex overflow-x-scroll h-[80%] scrollbar-thin scrollbar-track-red-700/50 scrollbar-thumb-[#39FF14]">
         {DUMMY.map((project, i) => {
           return (
-            <div className="bg-gray-900 opacity-70 hover:opacity-100 snap-center rounded-2xl snap-mandatory flex flex-col flex-shrink-0 space-y-5 items-center overflow-y-scroll justify-center py-10 h-full w-11/12">
+            <div
+              key={i}
+              className="bg-gray-900 opacity-70 hover:opacity-100 snap-center rounded-2xl snap-mandatory flex flex-col flex-shrink-0 space-y-5 items-center overflow-y-scroll justify-center py-10 h-full w-11/12"
+            >
               <motion.img
                 initial={{ opacity: 0, scale: 0 }}
                 transition={{ duration: 1 }}
