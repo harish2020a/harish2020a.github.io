@@ -14,15 +14,32 @@ import { fetchSkills } from "../utils/fetchSkills";
 import { fetchExperiences } from "../utils/fetchExperiences";
 import { fetchProjects } from "../utils/fetchProjects";
 import { fetchsocials } from "../utils/fetchsocials";
+import { client } from "../lib/sanity.client";
 
 export const revalidate = 60;
 
 export default async function Home() {
-  const pageInfo = await fetchPageInfo();
-  const skills = await fetchSkills();
-  const experiences = await fetchExperiences();
-  const projects = await fetchProjects();
-  const socials = await fetchsocials();
+  // const pageInfo = await fetchPageInfo();
+  // const skills = await fetchSkills();
+  // const experiences = await fetchExperiences();
+  // const projects = await fetchProjects();
+  // const socials = await fetchsocials();
+
+  const { pageInfo, skills, experiences, projects, socials } =
+    await client.fetch(`
+  {
+    "experiences":*[_type == 'experience']{
+      ...,
+      technologies[]->
+    },
+    "pageInfo":*[_type == 'pageInfo'][0],
+    "projects":*[_type == 'project']{
+      ...,
+      technologies[]->
+    },
+        "skills": *[_type == 'skill'],
+        "socials": *[_type == 'social'],
+      }`);
 
   return (
     <div className="scrollbar-thin scrollbar-track-red-700/50 scrollbar-thumb-[#39FF14] text-gray-400 cursor-default relative h-screen w-screen overflow-x-hidden snap-y snap-mandatory overflow-scroll z-0">
