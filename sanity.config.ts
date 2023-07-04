@@ -10,12 +10,9 @@ export default defineConfig({
   basePath: "/admin",
   name: "default",
   title: "my-portfolio",
-
   projectId,
   dataset,
-
   plugins: [deskTool(), visionTool()],
-
   schema: {
     types: schemaTypes,
   },
