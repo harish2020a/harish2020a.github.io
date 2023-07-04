@@ -14,6 +14,10 @@ export interface PageInfo extends SanityBody {
   email: string;
   name: string;
   phoneNumber: string;
+  role: string;
+  additionalRole: string;
+  quote1: string;
+  quote2: string;
 }
 
 export interface Social extends SanityBody {

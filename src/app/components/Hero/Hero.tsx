@@ -3,40 +3,42 @@ import { motion } from "framer-motion";
 import WavyText from "../WavyText";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import { useRouter } from "next/navigation";
+import { PageInfo } from "@/app/types/typings";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-const Hero = (props: Props) => {
+const Hero = ({ pageInfo }: Props) => {
   const router = useRouter();
   const [text, count] = useTypewriter({
-    words: [
-      "Building bridges between code and data!",
-      "Fueled by Machine Learning, unlock the hidden potential within data!",
-    ],
+    words: [pageInfo.quote1, pageInfo.quote2],
     loop: true,
   });
   return (
     <div className="font-extrabold h-screen flex items-center justify-center text-gray-400 flex-col text-center overflow-hidden space-y-5 px-10">
       <WavyText
         as="h1"
-        text="Hello there! I'm Harish"
+        text={`Hello there! I'm ${pageInfo.name}`}
         once
         className="text-lg sm:text-4xl lg:text-6xl hover:bg-gray-300 hover:-skew-y-3 cursor-pointer hover:text-black rounded-3xl px-5"
       />
       <WavyText
         delay={1}
         as="h3"
-        text="Full Stack Developer"
+        text={pageInfo.role}
         once
         spanClassName="text-xs sm:text-2xl lg:text-4xl font-light cursor-pointer"
       />
-      <WavyText
-        delay={1}
-        as="h3"
-        text="Machine Learning Enthusiast"
-        once
-        spanClassName="text-xs sm:text-xl lg:text-3xl font-light cursor-pointer"
-      />
+      {pageInfo?.additionalRole && (
+        <WavyText
+          delay={1}
+          as="h3"
+          text={pageInfo.additionalRole}
+          once
+          spanClassName="text-xs sm:text-xl lg:text-3xl font-light cursor-pointer"
+        />
+      )}
       <motion.h2
         drag
         dragConstraints={{ left: 20, right: 20, top: 20, bottom: 20 }}

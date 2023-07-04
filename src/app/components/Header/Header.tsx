@@ -2,10 +2,13 @@
 import { motion } from "framer-motion";
 import { SocialIcon } from "react-social-icons";
 import { useRouter } from "next/navigation";
+import { Social } from "@/app/types/typings";
 
-type Props = {};
+type Props = {
+  socials: Social[];
+};
 
-const Header = (props: Props) => {
+const Header = ({ socials }: Props) => {
   const router = useRouter();
   return (
     <header className="sticky top-0 flex items-start justify-between max-w-2xl mx-auto z-20 sm:items-center p-5">
@@ -23,18 +26,15 @@ const Header = (props: Props) => {
         }}
         transition={{ delay: 3, duration: 0.5 }}
       >
-        <SocialIcon
-          style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}
-          url="https://www.linkedin.com/in/harishb2020/"
-          bgColor="transparent"
-          fgColor="rgb(156 163 175)"
-        />
-        <SocialIcon
-          style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}
-          url="https://www.linkedin.com/in/harishb2020/"
-          bgColor="transparent"
-          fgColor="rgb(156 163 175)"
-        />
+        {socials.map((social) => (
+          <SocialIcon
+            key={social._id}
+            style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}
+            url={social.url}
+            bgColor="transparent"
+            fgColor="rgb(156 163 175)"
+          />
+        ))}
       </motion.div>
       <motion.div
         onClick={() => router.push("#contact")}

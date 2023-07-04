@@ -3,9 +3,12 @@ import { AppBar, Tabs, Tab, createTheme, ThemeProvider } from "@mui/material";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Skill from "./Skill/Skill";
-type Props = {};
+import { Skill as SkillType } from "@/app/types/typings";
+type Props = {
+  skills: SkillType[];
+};
 
-const Skills = (props: Props) => {
+const Skills = ({ skills }: Props) => {
   const theme = createTheme({
     typography: {
       fontFamily: ["Chilanka", "cursive"].join(","),
@@ -13,11 +16,11 @@ const Skills = (props: Props) => {
   });
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  const skills = useAnimation();
+  const animation = useAnimation();
   const [tab, setTab] = useState(0);
   useEffect(() => {
     if (isInView) {
-      skills.start({
+      animation.start({
         x: 0,
         opacity: 1,
         scale: 1,
@@ -29,7 +32,7 @@ const Skills = (props: Props) => {
       });
     }
     if (!isInView) {
-      skills.start({ opacity: 0, scale: 0 });
+      animation.start({ opacity: 0, scale: 0 });
     }
   }, [isInView]);
   return (
@@ -38,7 +41,7 @@ const Skills = (props: Props) => {
       className="flex relative flex-col text-center md:text-left xl:flex-row max-w-[2000px] xl:px-10 min-h-screen justify-center xl:space-y-0 mx-auto items-center"
     >
       <motion.h3
-        animate={skills}
+        animate={animation}
         whileHover={{ scale: 1.5 }}
         whileTap={{ scale: 0.7 }}
         className="absolute top-24 uppercase tracking-[20px] text-gray-400 text-xl cursor-pointer"
@@ -87,22 +90,13 @@ const Skills = (props: Props) => {
           </AppBar>
         </ThemeProvider>
         <div className="bg-customBlue border rounded-b-[20px] py-10 border-gray-400 flex flex-wrap gap-5 justify-center">
-          <Skill />
-          <Skill />
-          <Skill />
-          <Skill />
-          <Skill />
-          <Skill />
-          <Skill />
-          <Skill />
-          <Skill />
-          <Skill />
-          <Skill />
-          <Skill />
-          <Skill />
-          <Skill />
-          <Skill />
-          <Skill />
+          {skills?.map((skill, i) => (
+            <Skill
+              key={skill?._id}
+              skill={skill}
+              directionLeft={skills.length / 2 > i}
+            />
+          ))}
         </div>
       </div>
     </div>
