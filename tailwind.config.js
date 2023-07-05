@@ -8,8 +8,6 @@ module.exports = {
   ],
   theme: {
     cursor: {
-      // default: "url(/cursor/neon-default.cur), default",
-      // pointer: "url(/cursor/neon-pointer.cur), pointer",
       default: "url(/cursor/xenon/blue/loc.cur), default",
       pointer: "url(/cursor/xenon/blue/link.cur), pointer",
     },

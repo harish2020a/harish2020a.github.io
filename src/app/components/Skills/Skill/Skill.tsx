@@ -1,6 +1,7 @@
 import { urlFor } from "@/app/lib/sanity.client";
 import { Skill } from "@/app/types/typings";
-import { motion } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { useRef, useEffect } from "react";
 
 type Props = {
   directionLeft?: boolean;
@@ -8,18 +9,36 @@ type Props = {
 };
 
 const Skill = ({ directionLeft, skill }: Props) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      animation.start({ opacity: 1, x: 0, transition: { duration: 1 } });
+    }
+    if (!isInView) {
+      animation.start({ x: directionLeft ? -1000 : 1000, opacity: 0 });
+    }
+  }, [isInView]);
   return (
-    <div className="group cursor-pointer relative basis-1/5 self-center flex flex-col items-center justify-center">
+    <div
+      ref={ref}
+      className="group relative basis-1/5 self-center flex flex-col items-center justify-center space-y-1"
+    >
       <motion.img
-        initial={{ x: directionLeft ? -200 : 200, opacity: 0 }}
-        transition={{ duration: 0.5 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        animate={animation}
         whileHover={{ scale: 1.5 }}
         whileTap={{ scale: 0.8 }}
         src={urlFor(skill?.image)}
-        className="rounded-full border border-gray-400 object-cover w-10 h-10 xl:w-12 xl:h-12"
+        className="h-6 md:h-10 w-6 md:w-10 cursor-pointer rounded-lg bg-white p-1"
       />
-      <p className="block">{skill?.title}</p>
+      <motion.p
+        animate={animation}
+        className="block text-xs font-thin md:text-lg"
+      >
+        {skill?.title}
+      </motion.p>
     </div>
   );
 };

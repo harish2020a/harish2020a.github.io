@@ -21,7 +21,7 @@ const ExperienceCard = ({ experience }: Props) => {
         <h4 className="text-2xl font-thin">{experience?.company}</h4>
         <p className="font-bold text-lg mt-1">{experience?.jobTitle}</p>
         <div className="flex space-x-2 my-2">
-          {experience?.technologies.map((technology) => (
+          {experience?.technologies?.map((technology) => (
             <img
               key={technology?._id}
               className="h-8 w-8 rounded-lg bg-white p-1"

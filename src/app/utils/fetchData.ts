@@ -6,7 +6,7 @@ export const fetchData = async () => {
     "experiences":*[_type == 'experience']{
       ...,
       technologies[]->
-    },
+    } | order(dateEnded desc),
     "pageInfo":*[_type == 'pageInfo'][0],
     "projects":*[_type == 'project']{
       ...,

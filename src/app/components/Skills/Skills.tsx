@@ -15,9 +15,15 @@ const Skills = ({ skills }: Props) => {
     },
   });
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: false });
   const animation = useAnimation();
   const [tab, setTab] = useState(0);
+  const [filteredSkills, setFilteredSkills] = useState<SkillType[]>();
+
+  useEffect(() => {
+    tabHandler("", 0);
+  }, []);
+
   useEffect(() => {
     if (isInView) {
       animation.start({
@@ -35,6 +41,30 @@ const Skills = ({ skills }: Props) => {
       animation.start({ opacity: 0, scale: 0 });
     }
   }, [isInView]);
+
+  const filterSkills = (category: string) => {
+    return skills.filter((skill) => category === skill.category);
+  };
+
+  const tabHandler = (event: any, i: number) => {
+    setTab(i);
+    switch (i) {
+      case 0:
+        setFilteredSkills(filterSkills("frontEnd"));
+        break;
+      case 1:
+        setFilteredSkills(filterSkills("backEnd"));
+        break;
+      case 2:
+        setFilteredSkills(filterSkills("languages"));
+        break;
+      case 3:
+        setFilteredSkills(filterSkills("otherTools"));
+        break;
+      default:
+        setFilteredSkills(filterSkills("frontEnd"));
+    }
+  };
   return (
     <div
       ref={ref}
@@ -48,7 +78,7 @@ const Skills = ({ skills }: Props) => {
       >
         Skills
       </motion.h3>
-      <div className="flex flex-col w-9/12">
+      <div className="flex flex-col w-11/12 md:w-9/12">
         <ThemeProvider theme={theme}>
           <AppBar
             position="static"
@@ -58,43 +88,41 @@ const Skills = ({ skills }: Props) => {
               width: "100%",
               borderTopLeftRadius: "20px",
               borderTopRightRadius: "20px",
+              fontSize: "0.25rem !important",
             }}
             className="skill-bar"
           >
             <Tabs
               value={tab}
-              onChange={(event, i) => {
-                console.log(i);
-                setTab(i);
-              }}
+              onChange={tabHandler}
               variant="fullWidth"
               indicatorColor="primary"
             >
               <Tab
-                style={{ cursor: "url(/cursor/blue-pointer.png), pointer" }}
+                style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}
                 label="Frontend"
               />
               <Tab
-                style={{ cursor: "url(/cursor/blue-pointer.png), pointer" }}
+                style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}
                 label="Backend"
               />
               <Tab
-                style={{ cursor: "url(/cursor/blue-pointer.png), pointer" }}
+                style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}
                 label="Languages"
               />
               <Tab
-                style={{ cursor: "url(/cursor/blue-pointer.png), pointer" }}
+                style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}
                 label="Other Tools"
               />
             </Tabs>
           </AppBar>
         </ThemeProvider>
         <div className="bg-customBlue border rounded-b-[20px] py-10 border-gray-400 flex flex-wrap gap-5 justify-center">
-          {skills?.map((skill, i) => (
+          {filteredSkills?.map((skill, i) => (
             <Skill
               key={skill?._id}
               skill={skill}
-              directionLeft={skills?.length / 2 > i}
+              directionLeft={filterSkills?.length / 2 > i}
             />
           ))}
         </div>
