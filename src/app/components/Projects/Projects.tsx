@@ -44,29 +44,31 @@ const Projects = ({ projects }: Props) => {
         animate={animation}
         whileHover={{ scale: 1.5 }}
         whileTap={{ scale: 0.7 }}
-        className="absolute top-24 uppercase tracking-[20px] text-gray-400 text-xl cursor-pointer"
+        className="absolute top-24 md:top-20 uppercase tracking-[20px] text-gray-400 text-xl cursor-pointer"
       >
         Projects
       </motion.h3>
-      <div className="z-20 absolute space-x-5 w-11/12 md:w-10/12 lg:w-8/12 xl:w-6/12 top-32 snap-x snap-mandatory flex overflow-x-scroll h-[80%] scrollbar-thin scrollbar-track-red-700/50 scrollbar-thumb-[#39FF14]">
+      <div className="z-20 absolute h-[70%] w-11/12 sm:w-9/12 md:w-8/12 lg:w-6/12 mx-auto space-x-5 flex top-44 sm:top-32 snap-x snap-mandatory overflow-x-scroll scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-[#39FF14]">
         {projects?.map((project) => {
           return (
             <div
               key={project?._id}
-              className="bg-gray-900 opacity-70 hover:opacity-100 snap-center rounded-2xl snap-mandatory flex flex-col flex-shrink-0 space-y-5 items-center overflow-y-scroll justify-center py-10 h-full w-11/12"
+              className="bg-gray-900 mx-auto opacity-70 hover:opacity-100 snap-center rounded-2xl snap-mandatory flex flex-col flex-shrink-0 space-y-2 items-center overflow-y-scroll justify-center px-5 md:px-10 pb-10 h-full w-[90%]"
             >
-              <motion.img
-                initial={{ opacity: 0, scale: 0 }}
-                transition={{ duration: 1 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: false }}
-                className="h-20 w-40 md:h-48 md:w-96 object-contain object-center"
+              <img
+                // initial={{ opacity: 0, scale: 0 }}
+                // transition={{ duration: 1 }}
+                // whileInView={{ opacity: 1, scale: 1 }}
+                // viewport={{ once: false }}
+                className="h-24 w-48 md:h-48 md:w-96 object-contain mt-10"
                 src={urlFor(project?.image)}
               />
-              <div className="space-y-10 px-0 md:px-10">
-                <h4 className="text-4xl text-center">{project?.title}</h4>
-                <div className="flex items-center justify-center space-x-2">
-                  {project?.technologies.map((technology) => (
+              <div className="space-y-5 px-0 md:px-10">
+                <h4 className="text-sm md:text-base lg:text-lg text-center">
+                  {project?.title}
+                </h4>
+                <div className="flex items-center justify-center space-x-5">
+                  {project?.technologies?.map((technology) => (
                     <img
                       key={technology._id}
                       className="h-8 w-8 rounded-lg bg-white p-1"
@@ -74,8 +76,7 @@ const Projects = ({ projects }: Props) => {
                     />
                   ))}
                 </div>
-
-                <p className="text-sm text-center md:text-left mx-auto">
+                <p className="text-xs md:text-sm text-center md:text-left mx-auto">
                   {project?.summary}
                 </p>
               </div>

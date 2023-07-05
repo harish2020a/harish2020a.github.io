@@ -7,6 +7,8 @@ import {
 } from "@heroicons/react/24/outline";
 import { useForm, Resolver } from "react-hook-form";
 import { PageInfo } from "@/app/types/typings";
+import emailjs from "@emailjs/browser";
+import toast, { Toaster } from "react-hot-toast";
 
 type Props = {
   pageInfo: PageInfo;
@@ -24,7 +26,25 @@ const ContactMe = ({ pageInfo }: Props) => {
   const isInView = useInView(ref, { once: true });
   const contact = useAnimation();
   const { register, handleSubmit } = useForm<FormValues>();
-  const onSubmit = handleSubmit((formData) => console.log(formData));
+  const onSubmit = handleSubmit((formData) => {
+    if (!formData.name || !formData.email || !formData.message)
+      return toast.error("Please fill all the required fields.");
+    emailjs
+      .send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formData,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      )
+      .then(
+        (result) => {
+          toast.success("Thankyou for your response!");
+        },
+        (error) => {
+          toast.error("Something went wrong!!!", error);
+        }
+      );
+  });
 
   useEffect(() => {
     if (isInView) {
@@ -83,28 +103,28 @@ const ContactMe = ({ pageInfo }: Props) => {
           <input
             {...register("name")}
             placeholder="Name"
-            className="contactInput col-span-1"
+            className="contactInput col-span-1 cursor-text"
             type="text"
             required
           />
           <input
             {...register("email")}
             placeholder="Email"
-            className="contactInput col-span-1"
+            className="contactInput col-span-1 cursor-text"
             type="email"
             required
           />
           <input
             {...register("subject")}
             placeholder="Subject"
-            className="contactInput md:col-span-2"
+            className="contactInput md:col-span-2 cursor-text"
             type="text"
             required
           />
           <textarea
             {...register("message")}
             placeholder="Message"
-            className="contactInput md:col-span-2"
+            className="contactInput md:col-span-2 cursor-text"
             required
           />
           <button className="cursor-pointer hover:animate-bounce md:col-span-2 bg-[#39FF14] py-4 px-6 my-2 mx-auto rounded-md text-black font-bold text-lg">
@@ -112,6 +132,14 @@ const ContactMe = ({ pageInfo }: Props) => {
           </button>
         </form>
       </div>
+      <Toaster
+        toastOptions={{
+          className: "",
+          style: {
+            fontSize: "12px",
+          },
+        }}
+      />
     </div>
   );
 };

@@ -18,16 +18,18 @@ const About = ({ pageInfo }: Props) => {
     if (isInView) {
       about.start({
         x: 0,
+        originX: 0,
         opacity: 1,
         scale: 1,
         transition: {
           type: "spring",
           duration: 2,
-          bounce: 0.3,
+          stiffness: 300,
         },
       });
       aboutMe.start({
         opacity: 1,
+        originX: 0,
         scale: 1,
         transition: {
           delay: 0.5,
@@ -36,6 +38,7 @@ const About = ({ pageInfo }: Props) => {
       });
       aboutMeParagraph.start({
         opacity: 1,
+        originX: 0,
         scale: 1,
         transition: {
           delay: 0.8,
@@ -77,7 +80,7 @@ const About = ({ pageInfo }: Props) => {
           animate={aboutMeParagraph}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.7 }}
-          className="text-xs sm:text-sm cursor-pointer"
+          className="text-sm md:text-lg md:text-left cursor-pointer text-center"
         >
           {pageInfo?.backgroundInfo}
         </motion.p>

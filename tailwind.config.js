@@ -10,6 +10,7 @@ module.exports = {
     cursor: {
       default: "url(/cursor/xenon/blue/loc.cur), default",
       pointer: "url(/cursor/xenon/blue/link.cur), pointer",
+      text: "url(/cursor/xenon/blue/text.cur), text",
     },
     extend: {
       colors: {
