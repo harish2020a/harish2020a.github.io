@@ -66,7 +66,7 @@ const About = ({ pageInfo }: Props) => {
           animate={aboutMe}
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.7 }}
-          className="text-xl md:text-4xl font-thin cursor-pointer"
+          className="text-xl md:text-4xl w-fit text mx-auto md:mx-0 font-thin cursor-pointer"
         >
           <span className="underline decoration-[#39FF14]">About</span>{" "}
           <span className="bg-[#39FF14]/80 text-gray-900 underline decoration-gray-900">
@@ -77,7 +77,7 @@ const About = ({ pageInfo }: Props) => {
           animate={aboutMeParagraph}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.7 }}
-          className="text-sm md:text-lg md:text-left cursor-pointer text-center"
+          className="text-sm md:text-base lg:text-lg md:text-left cursor-pointer text-center"
         >
           {pageInfo?.backgroundInfo}
         </motion.p>
