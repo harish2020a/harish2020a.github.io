@@ -25,7 +25,7 @@ const Skill = ({ skill }: Props) => {
         }}
       >
         <Image
-          className="h-6 md:h-10 w-6 md:w-10 cursor-pointer rounded-lg bg-white p-1"
+          className="h-10 w-10 cursor-pointer rounded-lg bg-white p-1"
           width={200}
           height={200}
           alt=""

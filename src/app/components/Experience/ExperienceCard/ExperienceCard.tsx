@@ -9,7 +9,7 @@ type Props = {
 
 const ExperienceCard = ({ experience }: Props) => {
   return (
-    <article className="max-h-[500px] opacity-70 hover:opacity-100 transition-opacity snap-mandatory duration-200 overflow-auto flex flex-col justify-center rounded-2xl bg-gray-900 flex-shrink-0 w-[90%] overflow-y-hidden space-y-7 snap-center px-10 pt-10 pb-5 mx-auto">
+    <article className="max-h-[500px] transition-opacity snap-mandatory duration-200 overflow-auto flex flex-col justify-center rounded-2xl bg-gray-900 flex-shrink-0 w-[90%] overflow-y-hidden space-y-7 snap-center px-10 pt-10 pb-5 mx-auto">
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         transition={{ duration: 1.5 }}
@@ -34,7 +34,7 @@ const ExperienceCard = ({ experience }: Props) => {
         <div className="flex space-x-5 my-2 items-center justify-center">
           {experience?.technologies?.map((technology) => (
             <Image
-              className="h-8 w-8 rounded-lg bg-white p-1 hover:scale-150 duration-500 cursor-pointer"
+              className="h-10 w-10 rounded-lg bg-white p-1 hover:scale-150 duration-500 cursor-pointer"
               width={200}
               height={200}
               alt=""

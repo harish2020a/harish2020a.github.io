@@ -53,7 +53,7 @@ const Projects = ({ projects }: Props) => {
           return (
             <div
               key={project?._id}
-              className="bg-gray-900 mx-auto opacity-70 hover:opacity-100 snap-center rounded-2xl snap-mandatory flex flex-col flex-shrink-0 space-y-2 items-center justify-center px-5 md:px-10 pb-10 h-full w-[90%]"
+              className="bg-gray-900 mx-auto snap-center rounded-2xl snap-mandatory flex flex-col flex-shrink-0 space-y-2 items-center justify-center px-5 md:px-10 pb-10 h-full w-[90%]"
             >
               <Image
                 width={200}
@@ -69,7 +69,7 @@ const Projects = ({ projects }: Props) => {
                 <div className="flex items-center justify-center space-x-5">
                   {project?.technologies?.map((technology) => (
                     <Image
-                      className="h-8 w-8 rounded-lg bg-white p-1 hover:scale-150 duration-500 cursor-pointer"
+                      className="h-10 w-10 rounded-lg bg-white p-1 hover:scale-150 duration-500 cursor-pointer"
                       width={200}
                       height={200}
                       alt=""
