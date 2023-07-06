@@ -1,13 +1,12 @@
 "use client";
-import { PageInfo } from "@/app/types/typings";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 type Props = {
-  pageInfo: PageInfo;
+  backgroundInfo: string;
 };
 
-const About = ({ pageInfo }: Props) => {
+const About = ({ backgroundInfo }: Props) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
   const about = useAnimation();
@@ -79,7 +78,7 @@ const About = ({ pageInfo }: Props) => {
           whileTap={{ scale: 0.7 }}
           className="text-sm md:text-base lg:text-lg md:text-left cursor-pointer text-center"
         >
-          {pageInfo?.backgroundInfo}
+          {backgroundInfo}
         </motion.p>
       </div>
     </div>

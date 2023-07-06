@@ -4,13 +4,13 @@ import { useEffect, useRef } from "react";
 import WaveLine from "../WaveLine/WaveLine";
 import { Project } from "@/app/types/typings";
 import { urlFor } from "@/app/lib/sanity.client";
+import Image from "next/image";
 
 type Props = {
   projects: Project[];
 };
 
 const Projects = ({ projects }: Props) => {
-  const DUMMY = [1, 2, 3, 4, 5, 5];
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
   const animation = useAnimation();
@@ -55,19 +55,25 @@ const Projects = ({ projects }: Props) => {
               key={project?._id}
               className="bg-gray-900 mx-auto opacity-70 hover:opacity-100 snap-center rounded-2xl snap-mandatory flex flex-col flex-shrink-0 space-y-2 items-center justify-center px-5 md:px-10 pb-10 h-full w-[90%]"
             >
-              <img
-                className="h-24 w-48 md:h-48 md:w-96 object-contain mt-10 sticky"
+              <Image
+                width={200}
+                height={200}
+                className="h-24 w-48 md:h-48 md:w-96 object-contain mt-10 sticky rounded-lg cursor-pointer hover:scale-110 duration-500"
+                alt=""
                 src={urlFor(project?.image)}
               />
               <div className="space-y-5 px-0 md:px-10 overflow-y-scroll">
-                <h4 className="text-sm md:text-base lg:text-lg text-center">
+                <h4 className="text-sm md:text-base lg:text-lg text-center cursor-pointer hover:scale-150 duration-500">
                   {project?.title}
                 </h4>
                 <div className="flex items-center justify-center space-x-5">
                   {project?.technologies?.map((technology) => (
-                    <img
+                    <Image
+                      className="h-8 w-8 rounded-lg bg-white p-1 hover:scale-150 duration-500 cursor-pointer"
+                      width={200}
+                      height={200}
+                      alt=""
                       key={technology._id}
-                      className="h-8 w-8 rounded-lg bg-white p-1"
                       src={urlFor(technology.image)}
                     />
                   ))}

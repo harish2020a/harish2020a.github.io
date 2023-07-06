@@ -1,3 +1,4 @@
+"use server";
 import { client } from "../lib/sanity.client";
 
 export const fetchData = async () => {

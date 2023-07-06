@@ -28,7 +28,7 @@ export default async function Home() {
           <Hero pageInfo={pageInfo} />
         </section>
         <section id="about" className="snap-center">
-          <About pageInfo={pageInfo} />
+          <About backgroundInfo={pageInfo?.backgroundInfo} />
         </section>
         <section id="experience" className="snap-center">
           <Experience experiences={experiences} />
@@ -40,7 +40,7 @@ export default async function Home() {
           <Projects projects={projects} />
         </section>
         <section id="contact" className="snap-start">
-          <ContactMe pageInfo={pageInfo} />
+          <ContactMe phoneNumber={pageInfo?.phoneNumber} />
         </section>
         <Link href="#hero">
           <Image
