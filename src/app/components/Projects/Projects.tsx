@@ -48,22 +48,18 @@ const Projects = ({ projects }: Props) => {
       >
         Projects
       </motion.h3>
-      <div className="z-20 absolute h-[70%] w-11/12 sm:w-9/12 md:w-8/12 lg:w-6/12 mx-auto space-x-5 flex top-44 sm:top-32 snap-x snap-mandatory overflow-x-scroll scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-[#39FF14]">
+      <div className="z-20 absolute h-[80%] pb-5 w-11/12 sm:w-9/12 md:w-8/12 lg:w-6/12 mx-auto space-x-5 flex top-32 snap-x snap-mandatory overflow-x-scroll scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-[#39FF14]">
         {projects?.map((project) => {
           return (
             <div
               key={project?._id}
-              className="bg-gray-900 mx-auto opacity-70 hover:opacity-100 snap-center rounded-2xl snap-mandatory flex flex-col flex-shrink-0 space-y-2 items-center overflow-y-scroll justify-center px-5 md:px-10 pb-10 h-full w-[90%]"
+              className="bg-gray-900 mx-auto opacity-70 hover:opacity-100 snap-center rounded-2xl snap-mandatory flex flex-col flex-shrink-0 space-y-2 items-center justify-center px-5 md:px-10 pb-10 h-full w-[90%]"
             >
               <img
-                // initial={{ opacity: 0, scale: 0 }}
-                // transition={{ duration: 1 }}
-                // whileInView={{ opacity: 1, scale: 1 }}
-                // viewport={{ once: false }}
-                className="h-24 w-48 md:h-48 md:w-96 object-contain mt-10"
+                className="h-24 w-48 md:h-48 md:w-96 object-contain mt-10 sticky"
                 src={urlFor(project?.image)}
               />
-              <div className="space-y-5 px-0 md:px-10">
+              <div className="space-y-5 px-0 md:px-10 overflow-y-scroll">
                 <h4 className="text-sm md:text-base lg:text-lg text-center">
                   {project?.title}
                 </h4>

@@ -112,18 +112,14 @@ const Skills = ({ skills }: Props) => {
               />
               <Tab
                 style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}
-                label="Other Tools"
+                label="Others"
               />
             </Tabs>
           </AppBar>
         </ThemeProvider>
         <div className="bg-customBlue border rounded-b-[20px] py-10 border-gray-400 flex flex-wrap gap-5 justify-center">
-          {filteredSkills?.map((skill, i) => (
-            <Skill
-              key={skill?._id}
-              skill={skill}
-              directionLeft={filterSkills?.length / 2 > i}
-            />
+          {filteredSkills?.map((skill) => (
+            <Skill key={skill?._id} skill={skill} />
           ))}
         </div>
       </div>

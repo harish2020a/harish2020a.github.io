@@ -44,7 +44,7 @@ export default async function Home() {
       <Link href="#hero">
         <Image
           src={HomePng}
-          className="h-10 w-10 cursor-pointer mx-auto sticky bottom-5"
+          className="h-5 w-5 md:h-10 md:w-10 cursor-pointer mx-auto sticky bottom-3"
           alt="Home"
         />
       </Link>

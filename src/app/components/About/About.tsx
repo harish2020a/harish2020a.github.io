@@ -66,15 +66,17 @@ const About = ({ pageInfo }: Props) => {
       >
         About
       </motion.h3>
-      <div className="space-y-10 px-0 md:px-10">
+      <div className="space-y-10 mt-10 px-0 md:px-10">
         <motion.h4
           animate={aboutMe}
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.7 }}
-          className="text-4xl font-thin cursor-pointer"
+          className="text-xl md:text-4xl font-thin cursor-pointer"
         >
-          About{" "}
-          <span className="bg-[#39FF14]/80 text-gray-900 skew-y-6">Me</span>
+          <span className="underline decoration-[#39FF14]">About</span>{" "}
+          <span className="bg-[#39FF14]/80 text-gray-900 underline decoration-gray-900">
+            Me
+          </span>
         </motion.h4>
         <motion.p
           animate={aboutMeParagraph}

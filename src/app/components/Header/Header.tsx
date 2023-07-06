@@ -28,6 +28,7 @@ const Header = ({ socials }: Props) => {
       >
         {socials?.map((social) => (
           <SocialIcon
+            className="hover:scale-150 duration-300"
             key={social?._id}
             style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}
             url={social?.url}
@@ -51,13 +52,17 @@ const Header = ({ socials }: Props) => {
         }}
         transition={{ delay: 3, duration: 0.5 }}
       >
-        <SocialIcon
-          network="email"
-          className="cursor-pointer"
-          bgColor="transparent"
-          fgColor="rgb(156 163 175)"
-        />
-        <p className="uppercase hidden sm:inline-flex text-sm">Get In Touch</p>
+        <div className="hover:scale-150 duration-300">
+          <SocialIcon
+            network="email"
+            className="cursor-pointer"
+            bgColor="transparent"
+            fgColor="rgb(156 163 175)"
+          />
+          <p className="uppercase hidden sm:inline-flex text-sm">
+            Get In Touch
+          </p>
+        </div>
       </motion.div>
     </header>
   );
