@@ -9,6 +9,8 @@ const nextConfig = {
   images: {
     domains: ["cdn.sanity.io"],
   },
+  trailingSlash: true,
+  output: "export",
 };
 
 module.exports = nextConfig;
