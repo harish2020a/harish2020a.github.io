@@ -9,7 +9,7 @@ type Props = {
 
 const About = ({ pageInfo }: Props) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: false });
   const about = useAnimation();
   const aboutMe = useAnimation();
   const aboutMeParagraph = useAnimation();
@@ -18,18 +18,16 @@ const About = ({ pageInfo }: Props) => {
     if (isInView) {
       about.start({
         x: 0,
-        originX: 0,
         opacity: 1,
         scale: 1,
         transition: {
           type: "spring",
           duration: 2,
-          stiffness: 300,
+          bounce: 0.3,
         },
       });
       aboutMe.start({
         opacity: 1,
-        originX: 0,
         scale: 1,
         transition: {
           delay: 0.5,
@@ -38,7 +36,6 @@ const About = ({ pageInfo }: Props) => {
       });
       aboutMeParagraph.start({
         opacity: 1,
-        originX: 0,
         scale: 1,
         transition: {
           delay: 0.8,
@@ -54,11 +51,9 @@ const About = ({ pageInfo }: Props) => {
   }, [isInView]);
 
   return (
-    <div
-      ref={ref}
-      className="flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center"
-    >
+    <div className="flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
       <motion.h3
+        ref={ref}
         animate={about}
         whileHover={{ scale: 1.5 }}
         whileTap={{ scale: 0.7 }}
@@ -66,7 +61,7 @@ const About = ({ pageInfo }: Props) => {
       >
         About
       </motion.h3>
-      <div className="space-y-10 mt-10 px-0 md:px-10">
+      <div className="space-y-3 mt-10 px-0 md:px-10">
         <motion.h4
           animate={aboutMe}
           whileHover={{ scale: 1.2 }}

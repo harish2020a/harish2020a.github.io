@@ -23,7 +23,7 @@ type FormValues = {
 
 const ContactMe = ({ pageInfo }: Props) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: false });
   const contact = useAnimation();
   const { register, handleSubmit } = useForm<FormValues>();
   const onSubmit = handleSubmit((formData) => {
@@ -64,11 +64,9 @@ const ContactMe = ({ pageInfo }: Props) => {
     }
   }, [isInView]);
   return (
-    <div
-      ref={ref}
-      className="h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center"
-    >
+    <div className="h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
       <motion.h3
+        ref={ref}
         animate={contact}
         whileHover={{ scale: 1.5 }}
         whileTap={{ scale: 0.7 }}

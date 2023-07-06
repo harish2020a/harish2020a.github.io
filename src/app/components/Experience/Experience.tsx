@@ -30,11 +30,9 @@ const Experience = ({ experiences }: Props) => {
     }
   }, [isInView]);
   return (
-    <div
-      ref={ref}
-      className="h-screen flex flex-col relative overflow-hidden md:flex-row max-w-full px-10 justify-evenly mx-auto items-center"
-    >
+    <div className="h-screen flex flex-col relative overflow-hidden md:flex-row max-w-full px-10 justify-evenly mx-auto items-center">
       <motion.h3
+        ref={ref}
         animate={animation}
         whileHover={{ scale: 1.5 }}
         whileTap={{ scale: 0.7 }}
@@ -42,7 +40,7 @@ const Experience = ({ experiences }: Props) => {
       >
         Experience
       </motion.h3>
-      <div className="text-clip overflow-auto w-11/12 sm:w-9/12 md:w-8/12 lg:w-6/12 flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory mt-20 scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-[#39FF14]">
+      <div className="text-clip absolute overflow-auto w-11/12 sm:w-9/12 md:w-8/12 lg:w-6/12 flex space-x-5 overflow-x-scroll pb-5 snap-x snap-mandatory mt-20 scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-[#39FF14]">
         {experiences?.map((experience) => (
           <ExperienceCard key={experience?._id} experience={experience} />
         ))}

@@ -66,11 +66,9 @@ const Skills = ({ skills }: Props) => {
     }
   };
   return (
-    <div
-      ref={ref}
-      className="flex relative flex-col text-center md:text-left xl:flex-row max-w-[2000px] xl:px-10 min-h-screen justify-center xl:space-y-0 mx-auto items-center"
-    >
+    <div className="flex relative flex-col text-center md:text-left xl:flex-row max-w-[2000px] xl:px-10 min-h-screen justify-center xl:space-y-0 mx-auto items-center">
       <motion.h3
+        ref={ref}
         animate={animation}
         whileHover={{ scale: 1.5 }}
         whileTap={{ scale: 0.7 }}
@@ -84,12 +82,13 @@ const Skills = ({ skills }: Props) => {
             position="static"
             elevation={4}
             style={{
+              padding: "10px",
               backgroundColor: "#9ca3af",
               width: "100%",
               borderTopLeftRadius: "20px",
               borderTopRightRadius: "20px",
-              fontSize: "0.25rem !important",
             }}
+            color="secondary"
             className="skill-bar"
           >
             <Tabs
@@ -99,19 +98,31 @@ const Skills = ({ skills }: Props) => {
               indicatorColor="primary"
             >
               <Tab
-                style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}
+                className="text-xs sm:text-sm lg:text-base md:text-lg"
+                style={{
+                  cursor: "url(/cursor/xenon/blue/link.cur), pointer",
+                }}
                 label="Frontend"
               />
               <Tab
-                style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}
+                className="text-xs sm:text-sm lg:text-base md:text-lg"
+                style={{
+                  cursor: "url(/cursor/xenon/blue/link.cur), pointer",
+                }}
                 label="Backend"
               />
               <Tab
-                style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}
+                className="text-xs sm:text-sm lg:text-base md:text-lg"
+                style={{
+                  cursor: "url(/cursor/xenon/blue/link.cur), pointer",
+                }}
                 label="Languages"
               />
               <Tab
-                style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}
+                className="text-xs sm:text-sm lg:text-base md:text-lg"
+                style={{
+                  cursor: "url(/cursor/xenon/blue/link.cur), pointer",
+                }}
                 label="Others"
               />
             </Tabs>
