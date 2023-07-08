@@ -96,28 +96,28 @@ const Skills = ({ skills }: Props) => {
             }}
           >
             <Tab
-              className="text-xs sm:text-sm lg:text-base md:text-lg"
+              className="text-xs font-thin sm:text-sm lg:text-base md:text-lg"
               style={{
                 cursor: "url(/cursor/xenon/blue/link.cur), pointer",
               }}
               label="Frontend"
             />
             <Tab
-              className="text-xs sm:text-sm lg:text-base md:text-lg"
+              className="text-xs font-thin sm:text-sm lg:text-base md:text-lg"
               style={{
                 cursor: "url(/cursor/xenon/blue/link.cur), pointer",
               }}
               label="Backend"
             />
             <Tab
-              className="text-xs sm:text-sm lg:text-base md:text-lg"
+              className="text-xs font-thin sm:text-sm lg:text-base md:text-lg"
               style={{
                 cursor: "url(/cursor/xenon/blue/link.cur), pointer",
               }}
               label="Languages"
             />
             <Tab
-              className="text-xs sm:text-sm lg:text-base md:text-lg"
+              className="text-xs font-thin sm:text-sm lg:text-base md:text-lg"
               style={{
                 cursor: "url(/cursor/xenon/blue/link.cur), pointer",
               }}
