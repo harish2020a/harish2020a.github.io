@@ -82,14 +82,18 @@ const Skills = ({ skills }: Props) => {
             borderTopLeftRadius: "20px",
             borderTopRightRadius: "20px",
           }}
-          color="secondary"
-          className="skill-bar"
         >
           <Tabs
             value={tab}
             onChange={tabHandler}
             variant="fullWidth"
-            indicatorColor="primary"
+            TabIndicatorProps={{
+              style: { background: "#39ff14" },
+            }}
+            sx={{
+              "& button:hover": { color: "black" },
+              "& button.Mui-selected": { color: "black" },
+            }}
           >
             <Tab
               className="text-xs sm:text-sm lg:text-base md:text-lg"
