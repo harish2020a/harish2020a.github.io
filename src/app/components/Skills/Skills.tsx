@@ -9,11 +9,6 @@ type Props = {
 };
 
 const Skills = ({ skills }: Props) => {
-  const theme = createTheme({
-    typography: {
-      fontFamily: ["Chilanka", "cursive"].join(","),
-    },
-  });
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
   const animation = useAnimation();
@@ -77,57 +72,56 @@ const Skills = ({ skills }: Props) => {
         Skills
       </motion.h3>
       <div className="flex flex-col w-11/12 md:w-9/12">
-        <ThemeProvider theme={theme}>
-          <AppBar
-            position="static"
-            elevation={4}
-            style={{
-              padding: "10px",
-              backgroundColor: "#9ca3af",
-              width: "100%",
-              borderTopLeftRadius: "20px",
-              borderTopRightRadius: "20px",
-            }}
-            color="secondary"
-            className="skill-bar"
+        <AppBar
+          position="static"
+          elevation={4}
+          style={{
+            padding: "10px",
+            backgroundColor: "#9ca3af",
+            width: "100%",
+            borderTopLeftRadius: "20px",
+            borderTopRightRadius: "20px",
+          }}
+          color="secondary"
+          className="skill-bar"
+        >
+          <Tabs
+            value={tab}
+            onChange={tabHandler}
+            variant="fullWidth"
+            indicatorColor="primary"
           >
-            <Tabs
-              value={tab}
-              onChange={tabHandler}
-              variant="fullWidth"
-              indicatorColor="primary"
-            >
-              <Tab
-                className="text-xs sm:text-sm lg:text-base md:text-lg"
-                style={{
-                  cursor: "url(/cursor/xenon/blue/link.cur), pointer",
-                }}
-                label="Frontend"
-              />
-              <Tab
-                className="text-xs sm:text-sm lg:text-base md:text-lg"
-                style={{
-                  cursor: "url(/cursor/xenon/blue/link.cur), pointer",
-                }}
-                label="Backend"
-              />
-              <Tab
-                className="text-xs sm:text-sm lg:text-base md:text-lg"
-                style={{
-                  cursor: "url(/cursor/xenon/blue/link.cur), pointer",
-                }}
-                label="Languages"
-              />
-              <Tab
-                className="text-xs sm:text-sm lg:text-base md:text-lg"
-                style={{
-                  cursor: "url(/cursor/xenon/blue/link.cur), pointer",
-                }}
-                label="Others"
-              />
-            </Tabs>
-          </AppBar>
-        </ThemeProvider>
+            <Tab
+              className="text-xs sm:text-sm lg:text-base md:text-lg"
+              style={{
+                cursor: "url(/cursor/xenon/blue/link.cur), pointer",
+              }}
+              label="Frontend"
+            />
+            <Tab
+              className="text-xs sm:text-sm lg:text-base md:text-lg"
+              style={{
+                cursor: "url(/cursor/xenon/blue/link.cur), pointer",
+              }}
+              label="Backend"
+            />
+            <Tab
+              className="text-xs sm:text-sm lg:text-base md:text-lg"
+              style={{
+                cursor: "url(/cursor/xenon/blue/link.cur), pointer",
+              }}
+              label="Languages"
+            />
+            <Tab
+              className="text-xs sm:text-sm lg:text-base md:text-lg"
+              style={{
+                cursor: "url(/cursor/xenon/blue/link.cur), pointer",
+              }}
+              label="Others"
+            />
+          </Tabs>
+        </AppBar>
+
         <div className="bg-customBlue border rounded-b-[20px] py-10 border-gray-400 flex flex-wrap gap-5 justify-center">
           {filteredSkills?.map((skill) => (
             <Skill key={skill?._id} skill={skill} />

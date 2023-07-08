@@ -55,13 +55,19 @@ const Projects = ({ projects }: Props) => {
               key={project?._id}
               className="bg-gray-900 mx-auto snap-center rounded-2xl snap-mandatory flex flex-col flex-shrink-0 space-y-2 items-center justify-center px-5 md:px-10 pb-10 h-full w-[90%]"
             >
-              <Image
-                width={200}
-                height={200}
-                className="h-24 w-48 md:h-48 md:w-96 object-contain mt-10 sticky rounded-lg cursor-pointer hover:scale-110 duration-500"
-                alt=""
-                src={urlFor(project?.image)}
-              />
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1 }}
+              >
+                <Image
+                  width={200}
+                  height={200}
+                  className="h-24 w-48 md:h-48 md:w-96 object-contain mt-10 sticky rounded-lg cursor-pointer hover:scale-110 duration-500"
+                  alt=""
+                  src={urlFor(project?.image)}
+                />
+              </motion.div>
               <div className="space-y-5 px-0 md:px-10 overflow-y-scroll">
                 <h4 className="text-sm md:text-base lg:text-lg text-center cursor-pointer hover:scale-150 duration-500">
                   {project?.title}
