@@ -5,6 +5,8 @@ import WaveLine from "../WaveLine/WaveLine";
 import { Project } from "@/app/types/typings";
 import { urlFor } from "@/app/lib/sanity.client";
 import Image from "next/image";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 type Props = {
   projects: Project[];
@@ -53,8 +55,16 @@ const Projects = ({ projects }: Props) => {
           return (
             <div
               key={project?._id}
-              className="bg-gray-900 mx-auto snap-center rounded-2xl snap-mandatory flex flex-col flex-shrink-0 space-y-2 items-center justify-center px-5 md:px-10 pb-10 h-full w-[90%]"
+              className="bg-gray-900 relative mx-auto snap-center rounded-2xl snap-mandatory flex flex-col flex-shrink-0 space-y-2 items-center justify-center px-5 md:px-10 pb-10 h-full w-[90%]"
             >
+              <div
+                title="Link to Build"
+                className="absolute z-20 top-4 right-4"
+              >
+                <Link href={project?.linkToBuild} className="cursor-pointer">
+                  <ArrowTopRightOnSquareIcon className="h-6 w-6" />
+                </Link>
+              </div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
