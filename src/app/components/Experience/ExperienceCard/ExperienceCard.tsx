@@ -9,7 +9,7 @@ type Props = {
 
 const ExperienceCard = ({ experience }: Props) => {
   return (
-    <article className="max-h-[500px] transition-opacity snap-mandatory duration-200 overflow-auto flex flex-col justify-center rounded-2xl bg-gray-900 flex-shrink-0 w-[90%] overflow-y-hidden space-y-7 snap-center px-10 pt-10 pb-5 mx-auto">
+    <article className="max-h-[450px] transition-opacity snap-mandatory duration-200 overflow-auto flex flex-col justify-center rounded-2xl bg-gray-900 flex-shrink-0 w-[90%] overflow-y-hidden space-y-7 snap-center px-10 pt-10 pb-5 mx-auto">
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         transition={{ duration: 1.5 }}

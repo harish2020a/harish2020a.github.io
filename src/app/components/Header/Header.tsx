@@ -28,6 +28,7 @@ const Header = ({ socials }: Props) => {
       >
         {socials?.map((social) => (
           <SocialIcon
+            target="_blank"
             className="hover:scale-150 duration-300"
             key={social?._id}
             style={{ cursor: "url(/cursor/xenon/blue/link.cur), pointer" }}

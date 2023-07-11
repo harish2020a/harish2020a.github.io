@@ -50,7 +50,7 @@ const Projects = ({ projects }: Props) => {
       >
         Projects
       </motion.h3>
-      <div className="z-20 absolute h-[80%] pb-5 w-11/12 sm:w-9/12 md:w-8/12 lg:w-6/12 mx-auto space-x-5 flex top-32 snap-x snap-mandatory overflow-x-scroll scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-[#39FF14]">
+      <div className="z-20 absolute h-[70%] pb-5 w-11/12 sm:w-9/12 md:w-8/12 lg:w-6/12 mx-auto space-x-5 flex top-32 snap-x snap-mandatory overflow-x-scroll scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-[#39FF14]">
         {projects?.map((project) => {
           return (
             <div
@@ -61,7 +61,11 @@ const Projects = ({ projects }: Props) => {
                 title="Link to Build"
                 className="absolute z-20 top-4 right-4"
               >
-                <Link href={project?.linkToBuild} className="cursor-pointer">
+                <Link
+                  href={project?.linkToBuild}
+                  target="_blank"
+                  className="cursor-pointer"
+                >
                   <ArrowTopRightOnSquareIcon className="h-6 w-6" />
                 </Link>
               </div>
@@ -73,7 +77,7 @@ const Projects = ({ projects }: Props) => {
                 <Image
                   width={200}
                   height={200}
-                  className="h-24 w-48 md:h-48 md:w-96 object-contain mt-10 sticky rounded-lg cursor-pointer hover:scale-110 duration-500"
+                  className="h-24 w-48 md:h-28 md:w-56 object-contain mt-10 sticky rounded-lg cursor-pointer hover:scale-110 duration-500"
                   alt=""
                   src={urlFor(project?.image)}
                 />
