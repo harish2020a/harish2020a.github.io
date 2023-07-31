@@ -24,7 +24,7 @@ const ContactMe = ({ phoneNumber }: Props) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
   const contact = useAnimation();
-  const { register, handleSubmit } = useForm<FormValues>();
+  const { register, handleSubmit, reset } = useForm<FormValues>();
   const onSubmit = handleSubmit((formData) => {
     if (!formData.name || !formData.email || !formData.message)
       return toast.error("Please fill all the required fields.");
@@ -38,6 +38,7 @@ const ContactMe = ({ phoneNumber }: Props) => {
       .then(
         (result) => {
           toast.success("Thankyou for your response!");
+          reset({ name: "", email: "", subject: "", message: "" });
         },
         (error) => {
           toast.error("Something went wrong!!!", error);
@@ -95,6 +96,7 @@ const ContactMe = ({ phoneNumber }: Props) => {
         </motion.div>
         <form
           onSubmit={onSubmit}
+          id="form"
           className="grid grid-cols-1 md:grid-cols-2 w-fit mx-auto my-auto"
         >
           <input
@@ -116,7 +118,6 @@ const ContactMe = ({ phoneNumber }: Props) => {
             placeholder="Subject"
             className="contactInput md:col-span-2 cursor-text"
             type="text"
-            required
           />
           <textarea
             {...register("message")}
